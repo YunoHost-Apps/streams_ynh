@@ -1,18 +1,18 @@
 {
-    "name": "Zap",
-    "id": "zap",
+    "name": "Streams",
+    "id": "streams",
     "packaging_format": 1,
     "description": {
-        "en": "Ethical fediverse server alternative",
-        "fr": "serveur fedverse éthique"
+        "en": "An open source fediverse server",
+        "fr": "Un serveur fediverse open source"
     },
-    "version": "21.11.28~ynh1",
-    "url": "https://codeberg.org/zot-archive/zap",
+    "version": "23.07.24~ynh1",
+    "url": "https://codeberg.org/streams/streams",
     "upstream": {
-        "license": "MIT",
-        "code": "https://codeberg.org/zot-archive/zap"
+        "license": "Public Domain",
+        "code": "https://codeberg.org/streams/streams"
     },
-    "license": "MIT",
+    "license": "Public Domain",
     "maintainer": {
         "name": ""
     },
@@ -22,7 +22,7 @@
     "multi_instance": true,
     "services": [
         "nginx",
-        "php7.4-fpm",
+        "php8.1-fpm",
         "mysql",
         "postgresql"
     ],
@@ -32,8 +32,8 @@
                 "name": "domain",
                 "type": "domain",
                 "help": {
-                    "en": "ZAP must run in the root of this domain. It means no other app can be accessed/run from this domain. We advise to use a dedicated subdomain such as zap.domain.tld",
-                    "fr": "ZAP doit être installé à la racine du domaine. Cela implique qu'aucune autre app ne pourra être installée ou accessible sur ce domain. Nous conseillons un sous-domaine dédié par exemple zap.domain.tld."
+                    "en": "Your Streams based website must run in the root of this domain. It means no other app can be accessed/run from this domain. We advise to use a dedicated subdomain such as streams.domain.tld",
+                    "fr": "Votre site basé sur Streams doit être installé à la racine du domaine. Cela implique qu'aucune autre app ne pourra être installée ou accessible sur ce domain. Nous conseillons un sous-domaine dédié par exemple streams.domain.tld."
                 }
             },
             {
@@ -44,8 +44,8 @@
                 "name": "database",
                 "type": "string",
                 "ask": {
-                    "en": "Choose the database to be used for the Zap [mysql:1,postgresql:2]",
-                    "fr": "Choisissez la database de l'Zap [mysql:1,postgresql:2]"
+                    "en": "Choose the database to be used for your website [mysql:1,postgresql:2]",
+                    "fr": "Choisissez la base de données utilisée pour votre site [mysql:1,postgresql:2]"
                 },
                 "choices": ["1", "2"],
                 "default": "1"

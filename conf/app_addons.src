@@ -1,6 +1,7 @@
-SOURCE_URL=https://codeberg.org/zot-archive/zap-addons/archive/b2ddcc67735fb413f14efcc9c49780469b8b61cf.tar.gz
-SOURCE_SUM=009f5047096fdbe3becaebfb7ac3ee34d7efd3f4f891e3a645484a7e406598a1
+SOURCE_URL=https://codeberg.org/streams/streams-addons/archive/0ff7cafbb205611c9f5fbbb8d8294c0b9dba0d70.tar.gz
+SOURCE_SUM=2118bb796e1113a50b72c525708484563656edfe4b03c50b01ef973d839f3bce
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=
 SOURCE_FILENAME=
+
