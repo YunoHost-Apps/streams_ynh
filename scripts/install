@@ -254,7 +254,9 @@ ynh_systemd_action --service_name=nginx --action=reload
 #=================================================
 ynh_script_progression --message="Enabling ldapauth addon..."
 
-$final_path/util/addons install ldapauth
+pushd "$final_path"
+	/usr/bin/php8.1 util/addons install ldapauth
+popd
 
 #=================================================
 # END OF SCRIPT
