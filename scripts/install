@@ -62,8 +62,9 @@ ynh_app_setting_set --app=$app --key=random_string --value=$random_string
 #=================================================
 ynh_print_info "Installing dependencies..."
 
+ynh_install_app_dependencies $pkg_dependencies_main
 if [ $database -eq 2 ]; then
-	ynh_install_app_dependencies $pkg_dependencies
+	ynh_install_app_dependencies $pkg_dependencies_psql
 fi
 
 #=================================================
