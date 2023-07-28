@@ -70,7 +70,9 @@ chown -R $app:www-data "$final_path"
 #=================================================
 # RESTORE THE MYSQL DATABASE
 #=================================================
-ynh_script_progression --message="Restoring the MySQL database..."
+ynh_script_progression --message="Restoring the database..."
+
+ynh_install_app_dependencies $pkg_dependencies_main
 
 if [  $database -eq 1 ]; then
 	ynh_script_progression --message="Restoring  MySQL database..."
@@ -78,10 +80,10 @@ if [  $database -eq 1 ]; then
 	ynh_mysql_setup_db --db_user=$db_name --db_name=$db_name --db_pwd=$db_pwd
 	ynh_mysql_connect_as --user=$db_name --password=$db_pwd --database=$db_name < ./db.sql
 elif [ $database -eq 2 ]; then
-	# Removing postgresql database
+	# Reinstalling postgresql database
 	ynh_script_progression --message="Reinstalling dependencies..."
 	# Define and install dependencies
-	ynh_install_app_dependencies $pkg_dependencies
+	ynh_install_app_dependencies $pkg_dependencies_psql
 	ynh_script_progression --message="Restoring the PostgreSQL database..."
 	db_pwd=$(ynh_app_setting_get --app=$app --key=psqlpwd)
 	ynh_psql_test_if_first_run

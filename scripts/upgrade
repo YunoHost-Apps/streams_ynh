@@ -200,8 +200,10 @@ chmod 644 "/etc/cron.d/$app"
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..."
 
+ynh_install_app_dependencies $pkg_dependencies_main
+
 if [ $database -eq 2 ]; then
-	ynh_install_app_dependencies $pkg_dependencies
+	ynh_install_app_dependencies $pkg_dependencies_psql
 fi
 
 #=================================================
