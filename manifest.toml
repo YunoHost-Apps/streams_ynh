@@ -57,12 +57,12 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php${YNH_PHP_VERSION}-mbstring php${YNH_PHP_VERSION}-cli php${YNH_PHP_VERSION}-imagick php${YNH_PHP_VERSION}-xml php${YNH_PHP_VERSION}-zip php${YNH_PHP_VERSION}-curl php${YNH_PHP_VERSION}-ldap php${YNH_PHP_VERSION}-mysql php${YNH_PHP_VERSION}-json php${YNH_PHP_VERSION}-gd"
+    packages = "php8.2-mbstring php8.2-cli php8.2-imagick php8.2-xml php8.2-zip php8.2-curl php8.2-ldap php8.2-json php8.2-gd"
 
     packages_from_raw_bash = """
             if [[ "$database" == "mysql" ]]; then 
-                echo "mariadb-server"
+                echo "mariadb-server php8.2-mysql"
             elif [[ "$database" == "postgresql" ]]; then 
-                echo "postgresql postgresql-contrib"
+                echo "postgresql postgresql-contrib php8.2-pgsql"
             fi
         """

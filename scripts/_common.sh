@@ -3,43 +3,19 @@
 #=================================================
 # COMMON VARIABLES
 #=================================================
+# PHP APP SPECIFIC
+#=================================================
 
-# dependencies used by the app
-YNH_PHP_VERSION="8.2"
 YNH_COMPOSER_VERSION="2.5.8"
 
-pkg_dependencies_main="php${YNH_PHP_VERSION}-mbstring php${YNH_PHP_VERSION}-cli php${YNH_PHP_VERSION}-imagick php${YNH_PHP_VERSION}-xml php${YNH_PHP_VERSION}-zip php${YNH_PHP_VERSION}-curl php${YNH_PHP_VERSION}-ldap php${YNH_PHP_VERSION}-mysql php${YNH_PHP_VERSION}-json php${YNH_PHP_VERSION}-gd"
-pkg_dependencies_psql="postgresql postgresql-contrib php${YNH_PHP_VERSION}-pgsql"
+#=================================================
+# PERSONAL HELPERS
+#=================================================
 
 #=================================================
 # EXPERIMENTAL HELPERS
 #=================================================
 
-ynh_smart_mktemp () {
-        local min_size="${1:-300}"
-        # Transform the minimum size from megabytes to kilobytes
-        min_size=$(( $min_size * 1024 ))
-
-        # Check if there's enough free space in a directory
-        is_there_enough_space () {
-                local free_space=$(df --output=avail "$1" | sed 1d)
-                test $free_space -ge $min_size
-        }
-
-        if is_there_enough_space /tmp; then
-                local tmpdir=/tmp
-        elif is_there_enough_space /var; then
-                local tmpdir=/var
-        elif is_there_enough_space /; then
-                local tmpdir=/
-        elif is_there_enough_space /home; then
-                local tmpdir=/home
-        else
-		ynh_die "Insufficient free space to continue..."
-        fi
-
-        echo "$(mktemp --directory --tmpdir="$tmpdir")"
-}
 #=================================================
 # FUTURE OFFICIAL HELPERS
 #=================================================
