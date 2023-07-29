@@ -1,0 +1,68 @@
+packaging_format = 2
+
+id = "streams"
+name = "Streams"
+description.en = "An open source fediverse server"
+description.fr = "Un serveur fediverse open source"
+
+version = "23.07.24~ynh1"
+
+maintainers = ["Papa Dragon"]
+
+[upstream]
+license = "Public Domain"
+website = ""
+code = "https://codeberg.org/streams/streams"
+
+[integration]
+yunohost = ">= 11.1.21"
+architectures = "all"
+multi_instance = true
+ldap = true
+sso = true
+disk = "50M"
+ram.build = "200M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+    full_domain = true
+
+    [install.admin]
+    type = "user"
+
+    [install.database]
+    ask.en = "Choose your database"
+    ask.fr = "Choisissez votre base de données"
+    type = "string"
+    choices = ["mysql", "postgresql"]
+    default = "mysql"
+
+[resources]
+    [resources.sources]
+        [resources.sources.main]
+        url = "https://codeberg.org/streams/streams/archive/c6cfd33c0e1b88e30399a4f9efd557512bb9ec86.tar.gz"
+        sha256 = "a336c9f70109459bc167736aaa9211fba05a009110d8d0e9586af126337c8ec8"
+
+        [resources.sources.addons]
+        url = "https://codeberg.org/streams/streams-addons/archive/0ff7cafbb205611c9f5fbbb8d8294c0b9dba0d70.tar.gz"
+        sha256 = "2118bb796e1113a50b72c525708484563656edfe4b03c50b01ef973d839f3bce"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "php${YNH_PHP_VERSION}-mbstring php${YNH_PHP_VERSION}-cli php${YNH_PHP_VERSION}-imagick php${YNH_PHP_VERSION}-xml php${YNH_PHP_VERSION}-zip php${YNH_PHP_VERSION}-curl php${YNH_PHP_VERSION}-ldap php${YNH_PHP_VERSION}-mysql php${YNH_PHP_VERSION}-json php${YNH_PHP_VERSION}-gd"
+
+    packages_from_raw_bash = """
+            if [[ "$database" == "mysql" ]]; then 
+                echo "mariadb-server"
+            elif [[ "$database" == "postgresql" ]]; then 
+                echo "postgresql postgresql-contrib"
+            fi
+        """
