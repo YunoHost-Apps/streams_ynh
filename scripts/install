@@ -63,7 +63,7 @@ ynh_app_setting_set --app=$app --key=random_string --value=$random_string
 ynh_print_info "Installing dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies_main
-if [ $database -eq 2 ]; then
+if [ $database == "postgresql" ]; then
 	ynh_install_app_dependencies $pkg_dependencies_psql
 fi
 
@@ -83,8 +83,14 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 ynh_script_progression --message="Setting up Streams source files..."
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
-# Download, check integrity, uncompress and patch the source from app.src
-git clone https://codeberg.org/streams/streams.git "$final_path" --quiet
+# Download
+# Uncomment the line below to use latest available release version
+# git clone https://codeberg.org/streams/streams.git "$final_path" --quiet
+# git checkout release
+
+# Secure install - Comment the two lines below to use the git repository as the source
+ynh_setup_source --dest_dir="$install_dir"
+ynh_setup_source --dest_dir="$install_dir/addon" --source_id="addons"
 
 # 2 - Composer
 ynh_script_progression --message="Pulling in external libraries with Composer..."
@@ -150,7 +156,7 @@ chown -R $app:www-data "$final_path"
 # CREATE A  DATABASE
 #=================================================
 
-if [  $database -eq 1 ]; then
+if [  $database == "mysql" ]; then
 	ynh_script_progression --message="Creating a MySQL database..."
 	db_name=$(ynh_sanitize_dbid --db_name=$app)
 	db_user=$db_name
@@ -158,7 +164,7 @@ if [  $database -eq 1 ]; then
 	ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
 	ynh_script_progression --message="Importing database..."
 	ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" < $final_path/install/schema_mysql.sql
-elif [ $database -eq 2 ]; then
+elif [ $database == "postgresql" ]; then
 	# Create postgresql database
 	ynh_script_progression --message="Creating a postgresql database..."
 	ynh_replace_string --match_string="db_type = 0;" --replace_string="db_type = 1;" --target_file="$config"
@@ -256,7 +262,7 @@ ynh_systemd_action --service_name=nginx --action=reload
 ynh_script_progression --message="Enabling ldapauth addon..."
 
 pushd "$final_path"
-	/usr/bin/php8.2 util/addons install ldapauth
+	/usr/bin/php${YNH_PHP_VERSION} util/addons install ldapauth
 popd
 
 #=================================================
