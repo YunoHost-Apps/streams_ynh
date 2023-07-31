@@ -11,7 +11,6 @@ maintainers = ["Papa Dragon"]
 
 [upstream]
 license = "Public Domain"
-website = ""
 code = "https://codeberg.org/streams/streams"
 
 [integration]
@@ -29,17 +28,13 @@ ram.runtime = "50M"
     type = "domain"
     full_domain = true
 
-    [install.init_main_permission]
-    type = "group"
-    default = "visitors"
-
     [install.admin]
     type = "user"
 
     [install.database]
     ask.en = "Choose your database"
     ask.fr = "Choisissez votre base de données"
-    type = "string"
+    type = "select"
     choices = ["mysql", "postgresql"]
     default = "mysql"
 
@@ -59,6 +54,7 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
+    main.allowed = "visitors"
 
     [resources.apt]
     packages = "php8.2-mbstring php8.2-cli php8.2-imagick php8.2-xml php8.2-zip php8.2-curl php8.2-ldap php8.2-json php8.2-gd"
