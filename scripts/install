@@ -114,9 +114,9 @@ ynh_script_progression --message="Adding a configuration file..." --weight=1
 ynh_add_config --template="../conf/htconfig.sample.php" --destination="$install_dir/.htconfig.php"
 
 # addon ldap config
-ynh_script_progression --message="Push LDAP configuration to .htconfig.php..."
+#ynh_script_progression --message="Push LDAP configuration to .htconfig.php..."
 
-cat ../conf/ldap_conf.php >> $install_dir/.htconfig.php
+#cat ../conf/ldap_conf.php >> $install_dir/.htconfig.php
 ynh_store_file_checksum --file=$install_dir/.htconfig.php
 
 chmod 600 "$install_dir/.htconfig.php"
@@ -153,11 +153,11 @@ ynh_add_fail2ban_config --logpath="$install_dir/php.log" --failregex="^.*auth\.p
 #=================================================
 # LDAP ADDON ACTIVATION
 #=================================================
-ynh_script_progression --message="Enabling ldapauth addon..."
+#ynh_script_progression --message="Enabling ldapauth addon..."
 
-pushd "$install_dir"
-	/usr/bin/php${YNH_PHP_VERSION} util/addons install ldapauth
-popd
+#pushd "$install_dir"
+#	/usr/bin/php${YNH_PHP_VERSION} util/addons install ldapauth
+#popd
 
 #=================================================
 # END OF SCRIPT
