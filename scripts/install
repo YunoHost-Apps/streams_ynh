@@ -25,7 +25,7 @@ path_url="/"
 admin=$YNH_APP_ARG_ADMIN
 email=$(ynh_user_get_info --username=$admin --key=mail)
 upload="256M"
-database="1"
+database="mysql"
 random_string=$(ynh_string_random --length=48)
 database=`expr $YNH_APP_ARG_DATABASE`
 
@@ -63,7 +63,7 @@ ynh_app_setting_set --app=$app --key=random_string --value=$random_string
 ynh_print_info "Installing dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies_main
-if [ $database -eq 2 ]; then
+if [ $database == "mysql" ]; then
 	ynh_install_app_dependencies $pkg_dependencies_psql
 fi
 
@@ -150,7 +150,7 @@ chown -R $app:www-data "$final_path"
 # CREATE A  DATABASE
 #=================================================
 
-if [  $database -eq 1 ]; then
+if [  $database == "mysql" ]; then
 	ynh_script_progression --message="Creating a MySQL database..."
 	db_name=$(ynh_sanitize_dbid --db_name=$app)
 	db_user=$db_name
@@ -158,7 +158,7 @@ if [  $database -eq 1 ]; then
 	ynh_mysql_setup_db --db_user=$db_user --db_name=$db_name
 	ynh_script_progression --message="Importing database..."
 	ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name" < $final_path/install/schema_mysql.sql
-elif [ $database -eq 2 ]; then
+elif [ $database == "postgresql" ]; then
 	# Create postgresql database
 	ynh_script_progression --message="Creating a postgresql database..."
 	ynh_replace_string --match_string="db_type = 0;" --replace_string="db_type = 1;" --target_file="$config"

@@ -26,10 +26,10 @@ database=$(ynh_app_setting_get --app=$app --key=database)
 # REMOVE THE DATABASE
 #=================================================
 
-if [  $database -eq 1 ]; then
+if [  $database == "mysql" ]; then
 	ynh_script_progression --message="Removing  MySQL database..."
 	ynh_mysql_remove_db --db_user=$db_user --db_name=$db_name
-elif [ $database -eq 2 ]; then
+elif [ $database == "postgresql" ]; then
 	# Removing postgresql database
 	ynh_script_progression --message="Removing  postgreSQL database..."
     ynh_psql_remove_db --db_user=$db_user --db_name=$db_name
