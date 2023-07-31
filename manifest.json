@@ -44,8 +44,8 @@
                 "name": "database",
                 "type": "select",
                 "ask": {
-                    "en": "Choose the database to be used for your website [mysql:1,postgresql:2]",
-                    "fr": "Choisissez la base de données utilisée pour votre site [mysql:1,postgresql:2]"
+                    "en": "Choose the database to be used for your website",
+                    "fr": "Choisissez la base de données utilisée pour votre site"
                 },
                 "choices": ["mysql", "postgresql"],
                 "default": "mysql"

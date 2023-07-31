@@ -83,8 +83,10 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 ynh_script_progression --message="Setting up Streams source files..."
 
 ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+
 # Download, check integrity, uncompress and patch the source from app.src
-git clone https://codeberg.org/streams/streams.git "$final_path" --quiet
+ynh_setup_source --dest_dir="$final_path"
+
 
 # 2 - Composer
 ynh_script_progression --message="Pulling in external libraries with Composer..."
@@ -92,41 +94,10 @@ ynh_script_progression --message="Pulling in external libraries with Composer...
 ynh_install_composer
 
 # 3 - Streams Addons
+# Download, check integrity, uncompress and patch the addons from app_addons.src
+ynh_setup_source --dest_dir="$final_path/addon" --source_id="app_addons"
 
-# Make addon Directory and unpack the addons to this directory
-ynh_script_progression --message="Setting up Streams addons source files..."
-
-pushd "$final_path"
-	mkdir -p extend/addon/zaddons
-	mkdir addon
-	git clone  https://codeberg.org/streams/streams-addons.git $final_path/extend/addon/zaddons --quiet
-	filelist=(`ls extend/addon/zaddons`)
-	cd addon
-	for a in "${filelist[@]}" ; do
-		base=`basename $a`
-		if [ $base = '.git' ]; then
-			#echo 'ignoring git'
-			continue;
-		fi
-		if [ ! -d ../extend/addon/zaddons/$base ]; then
-			#echo $a 'not a directory'
-			continue;
-		fi
-		if [ -x $base ]; then
-			#echo $base 'file exists'
-			continue;
-		fi
-
-		echo linking $base
-
-		ln -s ../extend/addon/zaddons/$base $base
-	done
-
-popd
-
-
-
-# 3 - Some extra folders
+# 4 - Some extra folders
 ynh_script_progression --message="Creating smarty3 folder for personal data..."
 
 mkdir -p "${final_path}/store"
@@ -192,9 +163,9 @@ ynh_replace_string --match_string= "//ini_set('display_errors', '0');" --replace
 sed -i "s/\['php_path'\] = 'php';/\['php_path'\] = 'php$phpversion';/g" "$config"
 
 # addon LDAP config
-ynh_script_progression --message="Push Ldap configuration to .htconfig.php..."
+#ynh_script_progression --message="Push Ldap configuration to .htconfig.php..."
 
-cat ../conf/ldap_conf.php >> $final_path/.htconfig.php
+#cat ../conf/ldap_conf.php >> $final_path/.htconfig.php
 
 #=================================================
 # NGINX CONFIGURATION
@@ -253,11 +224,11 @@ ynh_systemd_action --service_name=nginx --action=reload
 #=================================================
 # LDAP ADDON ACTIVATION
 #=================================================
-ynh_script_progression --message="Enabling ldapauth addon..."
+#ynh_script_progression --message="Enabling ldapauth addon..."
 
-pushd "$final_path"
-	/usr/bin/php8.2 util/addons install ldapauth
-popd
+#pushd "$final_path"
+#	/usr/bin/php8.2 util/addons install ldapauth
+#popd
 
 #=================================================
 # END OF SCRIPT
