@@ -1,4 +1,4 @@
-SOURCE_URL=https://codeberg.org/streams/streams/archive/671af1429054b1146ad73739a33dcffa65f9138e.tar.gz
-SOURCE_SUM=d36ae7fcd5526f3f1bee54c2820b682b3a1d6474dcd0bc29fb475a706e7274dc
+SOURCE_URL=https://codeberg.org/streams/streams/archive/8ac9e679aa07c80f4793864a00aecb2530dbbed3.tar.gz
+SOURCE_SUM=916dcdcd53d6d594c6d7d1377df45cd64175ec53e19626e7560fb84758a1950d
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz

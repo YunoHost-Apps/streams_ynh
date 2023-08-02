@@ -6,7 +6,7 @@
         "en": "An open source fediverse server",
         "fr": "Un serveur fediverse open source"
     },
-    "version": "23.08.02~ynh1",
+    "version": "23.08.02~ynh2",
     "url": "https://codeberg.org/streams/streams",
     "upstream": {
         "license": "Public Domain",
