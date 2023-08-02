@@ -82,11 +82,9 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 # 1 - Streams
 ynh_script_progression --message="Setting up Streams source files..."
 
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
-
 # Download, check integrity, uncompress and patch the source from app.src
+ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 ynh_setup_source --dest_dir="$final_path"
-
 
 # 2 - Composer
 ynh_script_progression --message="Pulling in external libraries with Composer..."
@@ -95,6 +93,7 @@ ynh_install_composer
 
 # 3 - Streams Addons
 # Download, check integrity, uncompress and patch the addons from app_addons.src
+ynh_script_progression --message="Setting up Streams addons source files..."
 ynh_setup_source --dest_dir="$final_path/addon" --source_id="app_addons"
 
 # 4 - Some extra folders

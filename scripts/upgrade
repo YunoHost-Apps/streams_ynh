@@ -10,6 +10,12 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
+# CHECK VERSION
+#=================================================
+
+upgrade_type=$(ynh_check_app_version_changed)
+
+#=================================================
 # LOAD SETTINGS
 #=================================================
 ynh_script_progression --message="Loading installation settings..."
@@ -81,68 +87,24 @@ ynh_system_user_create --username=$app --home_dir="$final_path"
 ynh_script_progression --message="Upgrading source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
-# ynh_setup_source --dest_dir="$final_path"
 
-if [ `cd $final_path && git rev-parse --is-inside-work-tree` ]; then
-	pushd "$final_path"
-		git pull --quiet
-		ynh_install_composer
-		cd extend/addon/zaddons
-		git pull --quiet
-		cd ../../..
-		filelist=(`ls extend/addon/zaddons`)
-		cd addon
-		for a in "${filelist[@]}" ; do
-			base=`basename $a`
-			if [ $base = '.git' ]; then
-				#echo 'ignoring git'
-				continue;
-			fi
-			if [ ! -d ../extend/addon/zaddons/$base ]; then
-				#echo $a 'not a directory'
-				continue;
-			fi
-			if [ -x $base ]; then
-				#echo $base 'file exists'
-				continue;
-			fi
-
-			echo linking $base
-
-			ln -s ../extend/addon/zaddons/$base $base
-		done
-		for x in `ls` ; do
-			if [ -L "$x" ] && ! [ -e "$x" ]; then
-				echo "removing dead symlink $x" ;
-				rm -- "$x";
-			fi;
-		done
-	popd
-	chmod -R 775 $final_path/store
-else
-
-    # Create a temporary directory
-	  tmpdir="$(ynh_smart_mktemp 6000)"
-	# Backup the config file in the temp dir
-	  cp -a "$final_path/.htconfig.php" "$tmpdir/.htconfig.php"
- 	  cp -a "$final_path/store" "$tmpdir/store"
-	  cp -a "$final_path/php.log" "$tmpdir/php.log"
-	  cp -a "$final_path/cache" "$tmpdir/cache"
-
-	# Remove the app directory securely
-	ynh_secure_remove "$final_path"
+if [ "$upgrade_type" == "UPGRADE_APP" ]
+then
+	ynh_script_progression --message="Upgrading source files..." --weight=1
 
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir="$final_path"
 
-	cp -a "$tmpdir/cache" "${final_path}"
-	cp -a "$tmpdir/store" "${final_path}"
-	cp -a "$tmpdir/.htconfig.php" "${final_path}"
-	cp -a "$tmpdir/php.log" "${final_path}"
-	ynh_secure_remove --file="$tmpdir"
-	chmod -R 775 $final_path/store
-	mkdir $final_path/addon
-	ynh_setup_source --dest_dir="$final_path/addon" --source_id="app_addons"
+    # Composer update
+    ynh_script_progression --message="Pulling in external libraries with Composer..."
+
+    ynh_install_composer
+
+    ynh_script_progression --message="Setting up Streams addons source files..."
+
+    # Download, check integrity, uncompress and patch the addons from app_addons.src
+
+    ynh_setup_source --dest_dir="$final_path/addon" --source_id="app_addons"
 fi
 
 chmod 750 "$final_path"
@@ -202,7 +164,7 @@ ynh_script_progression --message="Upgrading dependencies..."
 
 ynh_install_app_dependencies $pkg_dependencies_main
 
-if [ $database -eq 2 ]; then
+if [ $database == "postgresql" ]; then
 	ynh_install_app_dependencies $pkg_dependencies_psql
 fi
 
