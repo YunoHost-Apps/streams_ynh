@@ -10,13 +10,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# REMOVE THE DATABASE
-#=================================================
-
-ynh_script_progression --message="Removing  MySQL database..." --weight=1
-ynh_mysql_remove_db --db_user=$db_user --db_name=$db_name
-
-#=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
 ynh_script_progression --message="Removing NGINX web server configuration..." --weight=1
