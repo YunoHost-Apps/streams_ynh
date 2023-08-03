@@ -43,6 +43,14 @@ ram.runtime = "50M"
         url = "https://codeberg.org/streams/streams-addons/archive/0ff7cafbb205611c9f5fbbb8d8294c0b9dba0d70.tar.gz"
         sha256 = "2118bb796e1113a50b72c525708484563656edfe4b03c50b01ef973d839f3bce"
 
+    [resources.ports]
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.data_dir]
+
     [resources.permissions]
     main.url = "/"
     main.allowed = "visitors"
