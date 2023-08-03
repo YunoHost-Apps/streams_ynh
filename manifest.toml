@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "An open source fediverse server"
 description.fr = "Un serveur fediverse open source"
 
-version = "23.07.31~ynh1"
+version = "23.08.02~ynh3"
 
 maintainers = ["Papa Dragon"]
 
@@ -17,52 +17,38 @@ code = "https://codeberg.org/streams/streams"
 yunohost = ">= 11.1.21"
 architectures = "all"
 multi_instance = true
-ldap = true
-sso = true
-disk = "50M"
+ldap = false
+sso = false
+disk = "150M"
 ram.build = "200M"
 ram.runtime = "50M"
 
 [install]
     [install.domain]
+    help.en = "Your website can only be installed in a root domain or subdomain"
+    help.fr = "Votre site web ne peut être installé que dans un domaine racine ou un sous-domaine"
     type = "domain"
     full_domain = true
 
     [install.admin]
     type = "user"
 
-    [install.database]
-    ask.en = "Choose your database"
-    ask.fr = "Choisissez votre base de données"
-    type = "select"
-    choices = ["mysql", "postgresql"]
-    default = "mysql"
-
 [resources]
     [resources.sources]
         [resources.sources.main]
-        url = "https://codeberg.org/streams/streams/archive/2ae1943eb9c26b3c798d1c7289d356612c9b6644.tar.gz"
-        sha256 = "7a5f8ddc4d5dcf417e980103c5191bd8d899a96a2fa62cb13ed92bd216b30d25"
+        url = "https://codeberg.org/streams/streams/archive/7e72622fa4c0ebaf0dae19e36576be33e3d46229.tar.gz"
+        sha256 = "ba84087395b0368951e4042b92dd1df23ea68c9104fdd04ce1a5f5e10cc1f899"
 
         [resources.sources.addons]
         url = "https://codeberg.org/streams/streams-addons/archive/0ff7cafbb205611c9f5fbbb8d8294c0b9dba0d70.tar.gz"
         sha256 = "2118bb796e1113a50b72c525708484563656edfe4b03c50b01ef973d839f3bce"
-
-    [resources.system_user]
-
-    [resources.install_dir]
 
     [resources.permissions]
     main.url = "/"
     main.allowed = "visitors"
 
     [resources.apt]
-    packages = "php8.2-mbstring php8.2-cli php8.2-imagick php8.2-xml php8.2-zip php8.2-curl php8.2-ldap php8.2-json php8.2-gd"
+    packages = "php8.2-mbstring php8.2-cli php8.2-imagick php8.2-xml php8.2-zip php8.2-curl php8.2-ldap php8.2-json php8.2-gd mariadb-server php8.2-mysql"
 
-    packages_from_raw_bash = """
-            if [[ "$database" == "mysql" ]]; then 
-                echo "mariadb-server php8.2-mysql"
-            elif [[ "$database" == "postgresql" ]]; then 
-                echo "postgresql postgresql-contrib php8.2-pgsql"
-            fi
-        """
+    [resources.database]
+    type = "mysql"
