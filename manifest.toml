@@ -5,12 +5,12 @@ name = "Streams"
 description.en = "An open source fediverse server"
 description.fr = "Un serveur fediverse open source"
 
-version = "23.08.02~ynh4"
+version = "23.08.02~ynh5"
 
 maintainers = ["Papa Dragon"]
 
 [upstream]
-license = "Public Domain"
+license = "Unlicense"
 code = "https://codeberg.org/streams/streams"
 
 [integration]
