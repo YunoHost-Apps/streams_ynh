@@ -16,9 +16,9 @@ source /usr/share/yunohost/helpers
 email=$(ynh_user_get_info --username=$admin --key=mail)
 upload="256M"
 random_string="$(ynh_string_random --length=48)"
-fpm_footprint="low"
+fpm_footprint="medium"
 fpm_free_footprint=0
-fpm_usage="low"
+fpm_usage="medium"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
