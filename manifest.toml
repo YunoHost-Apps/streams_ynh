@@ -28,7 +28,6 @@ ram.runtime = "50M"
     help.en = "Your website can only be installed in a root domain or subdomain"
     help.fr = "Votre site web ne peut être installé que dans un domaine racine ou un sous-domaine"
     type = "domain"
-    full_domain = true
 
     [install.admin]
     type = "user"
