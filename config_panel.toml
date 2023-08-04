@@ -12,11 +12,10 @@ name.fr = "Configuration de Streams"
         ask.en = "Memory footprint"
         ask.fr = "Empreinte mémoire"
         type = "select"
-        choices.low = "low, <= 20Mb per pool"
-        choices.medium = "medium, between 20Mb and 40Mb par pool"
-        choices.high = "High, > 40Mb per pool"
-        choices.specific = "Use specific value"
+        choices = ["low", "medium", "high", "specific"]
         default = "medium"
+        help.en = "<strong>low</strong>: <= 20Mb per pool<br><strong>medium</strong>: Between 20Mb and 40Mb per pool<br><strong>high</strong>: 40Mb per pool<br><strong>specific</strong> : Use specific value"
+        help.fr = "<strong>low</strong>: <= 20Mb par pool<br><strong>medium</strong>: Entre 20Mb et 40Mb par pool<br><strong>high</strong>: 40Mb par pool<br><strong>specific</strong> : Utiliser une valeur personnalisée"
 
         [main.php_fpm_config.fpm_free_footprint]
         visible = "fpm_footprint == 'specific'"
