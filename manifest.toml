@@ -2,8 +2,8 @@ packaging_format = 2
 
 id = "streams"
 name = "Streams"
-description.en = "An open source fediverse server"
-description.fr = "Un serveur fediverse open source"
+description.en = "Open source fediverse server"
+description.fr = "Serveur fediverse open source"
 
 version = "23.08.02~ynh5"
 

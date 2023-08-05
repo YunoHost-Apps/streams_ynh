@@ -23,8 +23,8 @@ chown -R $app:www-data "$install_dir"
 #=================================================
 # RESTORE THE DATABASE
 #=================================================
-
 ynh_script_progression --message="Restoring  MySQL database..." --weight=1
+
 ynh_mysql_connect_as --user=$db_user --password="$db_pwd" --database=$db_name \
 <<< "ALTER DATABASE $db_name CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
 ynh_mysql_execute_file_as_root --file="./db.sql" --database=$db_name
