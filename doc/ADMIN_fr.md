@@ -2,7 +2,7 @@
 
 - Votre site basé sur le [dépôt streams](https://codeberg.org/streams/streams/) nécessite un domaine dédié, alors obtenez-en un et ajoutez-le à l'aide du panneau d'administration YunoHost. **Domaines -> Ajouter un domaine**. Votre site utilise un domaine complet et est installé à la racine, vous pouvez donc créer un sous-domaine tel que monsite.domaine.tld. N'oubliez pas de mettre à jour vos enregistrements DNS si vous les gérez manuellement.
 
-### Droits d'utilisateur de l'administrateur, journaux et échec des mises à jour de la base de données
+### Droits d'utilisateur de l'administrateur, journaux et échec des mises à jour de la base de données
 
 - **Pour les droits d'administrateur** : lorsque l'installation est terminée, vous devrez visiter la page d'accueil de votre nouveau site et vous connecter avec le **nom d'utilisateur YunoHost du compte administrateur** qui a été choisi au moment du processus d'installation. Vous devriez alors pouvoir créer votre premier canal et disposer des **droits d'administrateur** pour le site.
 
