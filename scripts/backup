@@ -57,9 +57,8 @@ ynh_backup --src_path="/etc/cron.d/$app"
 #=================================================
 # BACKUP THE DATABASE
 #=================================================
-
-# Backup MySQL database
 ynh_print_info --message="Backup of the MySQL database..."
+
 ynh_mysql_dump_db --database="$db_name" > db.sql
 
 #=================================================

@@ -35,12 +35,10 @@ ynh_app_setting_set --app=$app --key=fpm_usage --value=$fpm_usage
 #=================================================
 # CREATE A DATABASE
 #=================================================
-
 ynh_script_progression --message="Creating a database..." --weight=2
 
 ynh_mysql_connect_as --user=$db_user --password="$db_pwd" --database=$db_name \
 <<< "ALTER DATABASE $db_name CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
-
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -73,7 +71,6 @@ ynh_add_nginx_config
 #=================================================
 # COMPOSER
 #=================================================
-
 ynh_script_progression --message="Pulling in external libraries with Composer..."
 
 ynh_install_composer
