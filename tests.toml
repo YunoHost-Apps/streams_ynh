@@ -15,4 +15,4 @@ test_format = 1.0
 
     test_upgrade_from.e42ed904304f4fb9cdf3daaa8be01130470b43b7.name = "Upgrade from 23.08.02~ynh5"
     test_upgrade_from.0b3d6c80be7fae311d1e560e24af963bb212c04f.name = "Upgrade from 23.08.14~ynh1"
-    test_upgrade_from.1008964a91e9fa57688c17e9f9177960a68b5519.name = "Upgrade from 23.08.31~ynh1"
+    test_upgrade_from.34f7b7dfe80f67150bee2fe012fc8ccb4a1bf218.name = "Upgrade from 23.08.18~ynh1"
