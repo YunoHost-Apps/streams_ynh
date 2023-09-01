@@ -14,7 +14,7 @@ license = "Unlicense"
 code = "https://codeberg.org/streams/streams"
 
 [integration]
-yunohost = ">= 11.1.21"
+yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
 ldap = false
@@ -28,6 +28,10 @@ ram.runtime = "50M"
     help.en = "Your website can only be installed in a root domain or subdomain"
     help.fr = "Votre site web ne peut être installé que dans un domaine racine ou un sous-domaine"
     type = "domain"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
 
     [install.admin]
     type = "user"
@@ -52,10 +56,9 @@ ram.runtime = "50M"
 
     [resources.permissions]
     main.url = "/"
-    main.allowed = "visitors"
 
     [resources.apt]
-    packages = "php8.2-mbstring php8.2-cli php8.2-imagick php8.2-xml php8.2-zip php8.2-curl php8.2-ldap php8.2-json php8.2-gd mariadb-server php8.2-mysql"
+    packages = "php8.2-mbstring php8.2-cli php8.2-imagick php8.2-xml php8.2-zip php8.2-curl php8.2-ldap php8.2-gd mariadb-server php8.2-mysql"
 
     [resources.database]
     type = "mysql"
