@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "23.08.31~ynh1"
+version = "23.09.09~ynh1"
 
 maintainers = ["Papa Dragon"]
 
@@ -39,8 +39,8 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        url = "https://codeberg.org/streams/streams/archive/1008964a91e9fa57688c17e9f9177960a68b5519.tar.gz"
-        sha256 = "9a8d7b6b08f5321199728d8b9107f44f6e1a3c56c981d4fdf0e362f97395f6be"
+        url = "https://codeberg.org/streams/streams/archive/258302bbf44d667ad1c9ff110d547e28e43abb3f.tar.gz"
+        sha256 = "c587641a9faedfb6e7d2483ba23f90fc089bb9cb8400706b51dfb164d1f2a46e"
 
         [resources.sources.addons]
         url = "https://codeberg.org/streams/streams-addons/archive/335bb4fa155257847c225c2ab8cfb8c5b780d5a5.tar.gz"
