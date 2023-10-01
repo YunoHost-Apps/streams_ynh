@@ -4,7 +4,7 @@
 
 ### Admin user rights, logs and failed database updates
 
-- **For admin rights**: When installation is complete, you will need to visit your new website and login with the **admin's YunoHost account username** which was chosen at the time of installation process. You should then be able to create your first channel and have the **admin rights** for your website.
+- **Admin account**: When installation is complete, you must visit your new website and create the first account using the **admin's email address** (the admin is the YunoHost user which was chosen at the beginning of the installation process). You will then be able to create your first channel and have access the **admin pages** for your website.
 
 - **Failing to get admin rights**: If the admin cannot access the admin settings at `https://mywebsite.domain.tld/admin` or you want to grant admin rights to any other registered user on your website, then you have to **manually add 4096** to the ***account_roles*** under ***accounts*** for that user in the **database through software like phpMyAdmin**.
 

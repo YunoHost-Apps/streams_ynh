@@ -4,7 +4,7 @@
 
 ### Droits d'utilisateur de l'administrateur, journaux et échec des mises à jour de la base de données
 
-- **Pour les droits d'administrateur** : lorsque l'installation est terminée, vous devrez visiter la page d'accueil de votre nouveau site et vous connecter avec le **nom d'utilisateur YunoHost du compte administrateur** qui a été choisi au moment du processus d'installation. Vous devriez alors pouvoir créer votre premier canal et disposer des **droits d'administrateur** pour le site.
+- **Compte administrateur** : lorsque l'installation est terminée, vous devez vous rendre sur la page d'accueil de votre nouveau site et créer le premier compte en utilisant **l'adresse électronique de l' administrateur** (l'administrateur est l'utilisateur YunoHost qui a été choisi au début du processus d'installation). Vous pouvez ensuite créer votre premier canal et accéder à **l'interface d'administration** de votre site.
 
 - **Échec de l'obtention des droits d'administration** : si l'administrateur ne peut pas accéder aux paramètres d'administration sur `https://monsite.domaine.tld/admin`, vous devez **ajouter manuellement 4096** aux ***account_roles*** sous ***accounts*** pour cet utilisateur dans la **base de données** par exemple via **phpMyAdmin**.
 
