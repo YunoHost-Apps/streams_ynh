@@ -21,7 +21,7 @@ Le [dépôt streams](https://codeberg.org/streams/streams/) vous permet d'instal
 Vos sites web seront compatibles avec **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** et bien d'autres encore.
 
 
-**Version incluse :** 23.09.09~ynh1
+**Version incluse :** 23.09.28~ynh1
 
 ## Captures d’écran
 
@@ -30,7 +30,6 @@ Vos sites web seront compatibles avec **Mastodon**, **Pleroma**, **Pixelfed**, *
 ## Documentations et ressources
 
 * Dépôt de code officiel de l’app : <https://codeberg.org/streams/streams>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_streams>
 * Signaler un bug : <https://github.com/YunoHost-Apps/streams_ynh/issues>
 
 ## Informations pour les développeurs
