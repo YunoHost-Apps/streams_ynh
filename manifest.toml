@@ -39,8 +39,8 @@ ram.runtime = "50M"
 [resources]
     [resources.sources]
         [resources.sources.main]
-        url = "https://codeberg.org/streams/streams/archive/de6f36c5e230a5c8d968c394d51010cf2705cedc.tar.gz"
-        sha256 = "fe0610677c7bb88f3fdae05a8e500b2c3637de6be0083e520fdbe5b07d91c3db"
+        url = "https://codeberg.org/streams/streams/archive/e83aaac1679b40d000b4999b9c98b15f97c5d8ec.tar.gz"
+        sha256 = "c1d31da756523730bd4df2d0f3be55fb302ddd9f83d554249716fb0280d6267a"
 
         [resources.sources.addons]
         url = "https://codeberg.org/streams/streams-addons/archive/39b1c5af9f2b1c639b6438ac85b0ea85273fc201.tar.gz"
