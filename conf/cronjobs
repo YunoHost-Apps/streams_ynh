@@ -1,4 +1,4 @@
 # Run poller periodically to update your website
 */10 * * * * __APP__ /usr/bin/php__PHPVERSION__ -f Code/Daemon/Run.php Cron > /dev/null 2>&1
 # Daily software update job
-30 05 * * * __APP__ /bin/bash __DATA_DIR__/daily-update.sh >> __DATA_DIR__/daily-updates.log 2>&1
+30 05 * * * root /bin/bash __DATA_DIR__/daily-update.sh >> __DATA_DIR__/daily-updates.log 2>&1

@@ -77,7 +77,8 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Pulling in external libraries with Composer..."
 
-ynh_install_composer
+#ynh_install_composer
+composer install
 
 #=================================================
 # SPECIFIC SETUP
