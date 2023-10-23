@@ -79,7 +79,7 @@ ynh_script_progression --message="Pulling in external libraries with Composer...
 
 ynh_install_composer --workdir="$install_dir"
 pushd $install_dir
-    util/add_addon_repo https://codeberg.org/streams/streams-addons.git zaddons
+    ynh_exec_as $app util/add_addon_repo https://codeberg.org/streams/streams-addons.git zaddons
 popd
 
 #=================================================
