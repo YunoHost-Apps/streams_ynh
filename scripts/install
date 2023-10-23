@@ -110,9 +110,11 @@ chown $app:$app "$install_dir/.htconfig.php"
 ynh_script_progression --message="Setuping cron job..." --weight=1
 
 # Set up cron job
-ynh_add_config --template="../conf/poller-cron" --destination="/etc/cron.d/$app"
+ynh_add_config --template="../conf/cronjobs" --destination="/etc/cron.d/$app"
 chown root: "/etc/cron.d/$app"
 chmod 644 "/etc/cron.d/$app"
+# Add daily update script
+ynh_add_config --template="../conf/daily-update.sh" --destination="/home/yunohost.app/$app/daily-update.sh"
 
 #=================================================
 # GENERIC FINALIZATION
