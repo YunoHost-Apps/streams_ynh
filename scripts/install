@@ -58,7 +58,6 @@ mkdir -p "$install_dir/store"
 mkdir -p  "$install_dir/cache/smarty3"
 
 chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
 chmod -R 775 $install_dir/store $install_dir/cache
 
 #=================================================
@@ -78,6 +77,8 @@ ynh_add_nginx_config
 ynh_script_progression --message="Pulling in external libraries with Composer..."
 
 ynh_install_composer --workdir="$install_dir"
+chown -R $app:www-data "$install_dir"
+
 pushd $install_dir
     ynh_exec_as $app util/add_addon_repo https://codeberg.org/streams/streams-addons.git zaddons
 popd
