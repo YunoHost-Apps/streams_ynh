@@ -52,7 +52,6 @@ git config --system --add safe.directory $install_dir
 
 # Download, check integrity, uncompress and patch the source from GitHub
 git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
-git config pull.rebase false
 
 touch "$install_dir/php.log"
 mkdir -p "$install_dir/store"
@@ -81,6 +80,7 @@ ynh_install_composer --workdir="$install_dir"
 chown -R $app:www-data "$install_dir"
 
 pushd $install_dir
+    ynh_exec_as $app git config pull.rebase false
     ynh_exec_as $app util/add_addon_repo https://codeberg.org/streams/streams-addons.git zaddons
     cd /var/www/$app/extend/addon/zaddons
     ynh_exec_as $app git config pull.rebase false
@@ -122,6 +122,7 @@ chown root: "/etc/cron.d/$app"
 chmod 644 "/etc/cron.d/$app"
 # Add daily update script
 ynh_add_config --template="../conf/daily-update.sh" --destination="/home/yunohost.app/$app/daily-update.sh"
+chown root: "/home/yunohost.app/$app/daily-update.sh"
 
 #=================================================
 # GENERIC FINALIZATION
