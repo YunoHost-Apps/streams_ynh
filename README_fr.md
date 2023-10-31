@@ -30,6 +30,7 @@ Vos sites web seront compatibles avec **Mastodon**, **Pleroma**, **Pixelfed**, *
 ## Documentations et ressources
 
 * Dépôt de code officiel de l’app : <https://codeberg.org/streams/streams>
+* YunoHost Store: <https://apps.yunohost.org/app/streams>
 * Signaler un bug : <https://github.com/YunoHost-Apps/streams_ynh/issues>
 
 ## Informations pour les développeurs
