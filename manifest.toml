@@ -44,7 +44,7 @@ ram.runtime = "50M"
 
         [resources.sources.addons]
         url = "https://codeberg.org/streams/streams-addons/archive/39b1c5af9f2b1c639b6438ac85b0ea85273fc201.tar.gz"
-        sha256 = "6325e08b298839a0b370f405666d040af702c31437c4e90e0472e73f84864a8f"
+        sha256 = "5885665bf3dfbe843387184543be17b6b2061b807a57c1d6962548af80794f75"
 
     [resources.ports]
 
