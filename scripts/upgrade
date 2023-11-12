@@ -16,8 +16,6 @@ ynh_script_progression --message="Loading settings..." --weight=1
 
 email=$(ynh_user_get_info --username=$admin --key=mail)
 
-ynh_app_setting_get --app=$app --key=git_clone
-
 #=================================================
 # CHECK VERSION
 #=================================================
@@ -57,40 +55,36 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..." --weight=1
 
-	# Download, check integrity, uncompress and patch the source from app.src
-	# ynh_setup_source --dest_dir="$install_dir" --keep="store/ .htconfig.php php.log"
+    git_dir="$install_dir/.git"
+    if [ ! -d "$git_dir" ]
+    then
 
-    # First we save what we need to keep
-    mv $install_dir/store $data_dir/
-    mv $install_dir/cache $data_dir/
-    mv $install_dir/php.log $data_dir/
+        # First we save what we need to keep
+        mv $install_dir/store $data_dir/
+        mv $install_dir/cache $data_dir/
+        mv $install_dir/php.log $data_dir/
 
-    # Then we remove the previous install
-    ynh_secure_remove $install_dir
+        # Then we remove the previous install
+        ynh_secure_remove $install_dir
 
-    # We make the install cloning the repo
-    mkdir -p "$install_dir"
-    chown -R $app:www-data "$install_dir"
+        # We make the install cloning the repo
+        mkdir -p "$install_dir"
+        chown -R $app:www-data "$install_dir"
 
-    git config --system --add safe.directory $install_dir
+        git config --system --add safe.directory $install_dir
 
-    git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
+        git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
 
-    # We restore what we previously saved
-    mv $data_dir/store $install_dir/
-    mv $data_dir/cache $install_dir/
-    mv $data_dir/php.log $install_dir/
+        # We restore what we previously saved
+        mv $data_dir/store $install_dir/
+        mv $data_dir/cache $install_dir/
+        mv $data_dir/php.log $install_dir/
 
-    chmod -R o-rwx "$install_dir"
-    chmod -R 775 $install_dir/store $install_dir/cache
+        chmod -R o-rwx "$install_dir"
+        chown -R $app:www-data "$install_dir"
+        chmod -R 775 $install_dir/store $install_dir/cache
+    fi
 fi
-
-mkdir -p "$install_dir/store"
-mkdir -p  "$install_dir/cache/smarty3"
-
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
-chmod -R 775 $install_dir/store $install_dir/cache
 
 #=================================================
 # PHP-FPM CONFIGURATION
