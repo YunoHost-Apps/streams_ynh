@@ -83,9 +83,6 @@ then
 
     chmod -R o-rwx "$install_dir"
     chmod -R 775 $install_dir/store $install_dir/cache
-
-    # We add a little something to remember we now use git clone to fetch the app code
-    ynh_app_setting_set --app=$app --key=git_clone --value=1
 fi
 
 mkdir -p "$install_dir/store"

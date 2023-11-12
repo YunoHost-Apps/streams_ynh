@@ -60,10 +60,6 @@ mkdir -p  "$install_dir/cache/smarty3"
 chmod -R o-rwx "$install_dir"
 chmod -R 775 $install_dir/store $install_dir/cache
 
-# Remember we use git clone to fetch code
-ynh_app_setting_set --app=$app --key=git_clone --value=1
-ynh_script_progression --message="We set git_clone value to $git_clone"
-
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
