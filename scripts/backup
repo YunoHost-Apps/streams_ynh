@@ -49,10 +49,11 @@ ynh_backup --src_path="/etc/fail2ban/filter.d/$app.conf"
 ynh_backup --src_path="/etc/logrotate.d/$app"
 
 #=================================================
-# BACKUP VARIOUS FILES
+# BACKUP CRON JOBS
 #=================================================
 
 ynh_backup --src_path="/etc/cron.d/$app"
+ynh_backup --src_path="/$data_dir"
 
 #=================================================
 # BACKUP THE DATABASE
