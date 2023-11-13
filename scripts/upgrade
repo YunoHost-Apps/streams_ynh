@@ -98,6 +98,7 @@ ynh_add_nginx_config
 ynh_script_progression --message="Pulling in external libraries with Composer..."
 
 ynh_install_composer
+chown -R $app:www-data "$install_dir"
 
 #=================================================
 # ADDONS
