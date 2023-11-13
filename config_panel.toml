@@ -4,6 +4,18 @@ version = "1.0"
 name.en = "Streams configuration"
 name.fr = "Configuration de Streams"
 
+    [main.git_branch_mode]
+    name.en = "'dev' branch"
+    name.fr = "Branche 'dev'"
+
+        [main.git_branch_mode.git_branch_mode]
+        ask.en = "Switch to git 'dev' branch"
+        ask.fr = "Basculer sur la branche git 'dev'"
+        type = "boolean"
+        default = "0"
+        help.en = "Use at your own risk, if you know ewactly what you're doing."
+        help.fr = "À utiliser à vos risques et périls, si vous savez exactement ce que vous faîtes."
+
     [main.php_fpm_config]
     name.en = "PHP-FPM configuration"
     name.fr = "Configuration de PHP-FPM"
