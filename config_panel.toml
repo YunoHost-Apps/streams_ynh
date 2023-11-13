@@ -13,7 +13,7 @@ name.fr = "Configuration de Streams"
         ask.fr = "Basculer sur la branche git 'dev'"
         type = "boolean"
         default = "0"
-        help.en = "Use at your own risk, if you know ewactly what you're doing."
+        help.en = "Use at your own risk, if you know exactly what you're doing."
         help.fr = "À utiliser à vos risques et périls, si vous savez exactement ce que vous faîtes."
 
     [main.php_fpm_config]

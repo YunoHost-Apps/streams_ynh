@@ -4,7 +4,7 @@
 
 ### Git branches and code updates
 
-- **Git branches**: the default branch used is "release", which should be considered as the stable version of the software. You can, at your own risk, switch to the "dev" development branch by using the `git checkout dev` command in the installation directory. To return to the stable branch, simply use the `git checkout release` command.
+- **Git branches**: the default branch used is "release", which should be considered as the stable version of the software. You can, at your own risk, switch to the "dev" development branch. You can do this in the YunoHost admin interface. You can also do it through a SSH connection by using the `git checkout dev` command in the installation directory (to return to the stable branch, simply use the `git checkout release` command).
 
 - **Automatic updates**: your website code will be updated automatically every day at 5:30. The update log `daily-updates.log` is available in the directory /home/yunohost.app/streams (or /home/yunohost.app/streams__X, in the case of multiple installations, 'X' being the number corresponding to the relevant installation).
 
