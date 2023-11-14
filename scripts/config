@@ -66,10 +66,17 @@ get__free_footprint() {
 
 
 set__git_branch_mode() {
-    if [ "$git_branch_mode" -eq "0" ]; then
-        # If git_branch was set to 0, switch to "release" branch
-        (cd "$install_dir" && git checkout release)
-        ynh_print_info "Switching to \"release\" branch"
+    if [ "$git_branch_mode" -eq "0" ]
+    then
+        # We allow switch back to "release" only if the branch is ahead of "dev"
+        if [ -z "$(cd "$install_dir" && git log release..dev)" ]
+        then
+            # If git_branch was set to 0, switch to "release" branch
+            (cd "$install_dir" && git checkout release)
+            ynh_print_info "Switching to \"release\" branch"
+        else
+            ynh_print_err --message="\"release\" branch is behind your local \"dev\" branch, rolling back is not allowed here"
+            exit 0
     elif [ "$git_branch_mode" -eq "1" ]; then
         # If git_branch was set to 1, switch to "dev" branch
         (cd "$install_dir" && git checkout dev)
