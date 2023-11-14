@@ -9,8 +9,9 @@ if echo $git_branch | grep -q "release"
 then
     echo "$(date) - Updating website..."
     (cd /var/www/__APP__ ; sudo -u __APP__ util/udall)
-    echo "$(date) - Daily update finished."
 else
-    echo "$(date) - release branch not in use, no automatic update"
+    echo "$(date) - Updating release branch code..."
+    (cd /var/www/__APP__ ; sudo -u __APP__ git fetch origin release:release)
 fi
+echo "$(date) - Daily update finished."
 
