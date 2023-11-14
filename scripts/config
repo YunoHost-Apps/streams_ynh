@@ -75,7 +75,7 @@ set__git_branch_mode() {
             ynh_print_info "Switching to \"release\" branch"
             (cd "$install_dir" && ynh_exec_as "$app" git checkout release)
             ynh_print_info "Full update of the website"
-            (cd "$data_dir" && bash daily-update.sh >> daily-updates.log 2>&1)
+            bash $data_dir/daily-update.sh >> $data_dir/daily-updates.log 2>&1
         else
             ynh_die --message="\"release\" branch is behind your local \"dev\" branch, rolling back is not allowed here"
             exit 1
