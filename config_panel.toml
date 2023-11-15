@@ -34,3 +34,15 @@ name.fr = "Configuration de Streams"
         default = "medium"
         help.en = "<strong>low</strong>: Personal usage, behind the SSO. No RAM footprint when not used, but the impact on the processor can be high if many users are using the service.<br><strong>medium</strong>: Low usage, few people or/and publicly accessible. Low RAM footprint, medium processor footprint when used.<br><strong>high</strong>: High usage, frequently visited website. High RAM footprint, but lower on processor usage and quickly responding."
         help.fr = "<strong>low</strong> : Utilisation personnelle, derrière le SSO. Pas d'empreinte RAM en cas de non-utilisation, mais l'impact sur le processeur peut être élevé si de nombreux utilisateurs utilisent le service.<br><strong>medium</strong> : Faible utilisation, peu d'utilisateurs et/ou service pas nécessairement accessible au public. Faible empreinte RAM, empreinte moyenne sur le processeur en cas d'utilisation.<br><strong>high</strong> : Utilisation soutenue, site web fréquemment visité. L'empreinte RAM est élevée, mais l'utilisation du processeur est moindre et le service répond rapidement."
+
+    [main.git_branch_mode]
+    name.en = "Developer Mode"
+    name.fr = "Mode Développeur"
+
+        [main.git_branch_mode.git_branch_mode]
+        ask.en = "Switch to 'dev' branch"
+        ask.fr = "Basculer sur la branche 'dev'"
+        type = "boolean"
+        default = "0"
+        help.en = "<strong>This option should only be used if you're either a professional software developer or a certified lunatic (or both).</strong><br><br>You can only return to the 'release' branch if it is ahead of the 'dev' branch.<br><br>If authorised, the switch to the 'release' branch will be immediately followed by a global update of the site - via the util/udall command.<br><br>You must be able to use the command line to solve any problems you may encounter after using this option.<br><br>If you haven't understood any of the above lines <strong>DON'T USE THIS OPTION!!!</strong>"
+        help.fr = "<strong>Cette option ne devrait être utilisée que si vous êtes un développeur de logiciels professionnel ou une personne passablement déraisonnable (ou les deux à la fois)</strong><br><br>Vous ne pourrez revenir à la branche 'release' que si celle-ci est en avance sur la branche 'dev'.<br><br>Si elle est autorisée, la bascule vers la branche 'release' sera immédiatement suivie d'une mise à jour globale du site - via la commande util/udall.<br><br>Vous devez impérativement être capable d'utiliser la ligne de commande pour résoudre tout problème que vous pourriez rencontrer après avoir utilisé cette option.<br><br>Si vous n'avez rien compris aux lignes ci-dessus <strong>N'UTILISEZ PAS CETTE OPTION!!!</strong>"

@@ -55,17 +55,31 @@ if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..." --weight=1
 
-	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$install_dir" --keep="store/ .htconfig.php php.log"
-	ynh_setup_source --dest_dir="$install_dir/addon" --source_id="addons"
+    # First we save what we need to keep
+    mv $install_dir/store $data_dir/
+    mv $install_dir/cache $data_dir/
+    mv $install_dir/php.log $data_dir/
+
+    # Then we remove the previous install
+    ynh_secure_remove $install_dir
+
+    # We make the install cloning the repo
+    mkdir -p "$install_dir"
+    chown -R $app:www-data "$install_dir"
+
+    git config --system --add safe.directory $install_dir
+
+    git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
+
+    # We restore what we previously saved
+    mv $data_dir/store $install_dir/
+    mv $data_dir/cache $install_dir/
+    mv $data_dir/php.log $install_dir/
+
+    chmod -R o-rwx "$install_dir"
+    chown -R $app:www-data "$install_dir"
+    chmod -R 775 $install_dir/store $install_dir/cache
 fi
-
-mkdir -p "$install_dir/store"
-mkdir -p  "$install_dir/cache/smarty3"
-
-chmod -R o-rwx "$install_dir"
-chown -R $app:www-data "$install_dir"
-chmod -R 775 $install_dir/store $install_dir/cache
 
 #=================================================
 # PHP-FPM CONFIGURATION
@@ -84,6 +98,19 @@ ynh_add_nginx_config
 ynh_script_progression --message="Pulling in external libraries with Composer..."
 
 ynh_install_composer
+chown -R $app:www-data "$install_dir"
+
+#=================================================
+# ADDONS
+#=================================================
+ynh_script_progression --message="Installing addons..."
+
+pushd $install_dir
+    ynh_exec_as $app git config pull.rebase false
+    ynh_exec_as $app util/add_addon_repo https://codeberg.org/streams/streams-addons.git zaddons
+    cd /var/www/$app/extend/addon/zaddons
+    ynh_exec_as $app git config pull.rebase false
+popd
 
 #=================================================
 # SPECIFIC UPGRADE
@@ -100,12 +127,15 @@ chown $app:$app "$install_dir/.htconfig.php"
 #=================================================
 # UPGRADE CRON JOB
 #=================================================
-ynh_script_progression --message="Upgrading cron job..." --weight=1
+ynh_script_progression --message="Setuping cron job..." --weight=1
 
 # Set up cron job
-ynh_add_config --template="../conf/poller-cron" --destination="/etc/cron.d/$app"
+ynh_add_config --template="../conf/cronjobs" --destination="/etc/cron.d/$app"
 chown root: "/etc/cron.d/$app"
 chmod 644 "/etc/cron.d/$app"
+# Add daily update script
+ynh_add_config --template="../conf/daily-update.sh" --destination="/home/yunohost.app/$app/daily-update.sh"
+chown root: "/home/yunohost.app/$app/daily-update.sh"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -115,7 +145,7 @@ chmod 644 "/etc/cron.d/$app"
 ynh_script_progression --message="Upgrading logrotate configuration..." --weight=1
 
 # Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
+ynh_use_logrotate "$install_dir/php.log"
 
 # Create a dedicated Fail2Ban config
 ynh_add_fail2ban_config --logpath="$install_dir/php.log" --failregex="^.*auth\.php.*failed login attempt.*from IP <HOST>.*$" --max_retry="5"
