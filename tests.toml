@@ -13,6 +13,5 @@ test_format = 1.0
     # Default args to use for install
     # -------------------------------
 
-    test_upgrade_from.5112b799be49c5768416ca8c23efd0afbba9cfb5.name = "Upgrade from 23.11.05~ynh3"
-    test_upgrade_from.d9393d31c20fca899e8e13650cb79f2c0846e81a.name = "Upgrade from 23.11.11~ynh1"
+    test_upgrade_from.00ccbbeb7e3da0209698ff12cdeb274a27f048af.name = "Upgrade from 23.11.14~ynh1"
 

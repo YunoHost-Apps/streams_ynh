@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "23.11.14~ynh1"
+version = "23.12.17~ynh1"
 
 maintainers = ["Papa Dragon"]
 
@@ -50,7 +50,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php8.2-mbstring, php8.2-cli, php8.2-imagick, php8.2-xml, php8.2-zip, php8.2-curl, php8.2-ldap, php8.2-gd, mariadb-server, php8.2-mysql"
+    packages = "php8.2-mbstring, php8.2-cli, php8.2-imagick, php8.2-xml, php8.2-zip, php8.2-curl, php8.2-ldap, php8.2-gd, mariadb-server, php8.2-mysql php8.2-gmp"
 
     [resources.database]
     type = "mysql"
