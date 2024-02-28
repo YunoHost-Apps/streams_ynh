@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "23.12.17~ynh1"
+version = "24.02.18~ynh1"
 
 maintainers = ["Papa Dragon"]
 
@@ -35,6 +35,14 @@ ram.runtime = "50M"
 
     [install.admin]
     type = "user"
+
+    [install.activate_directory]
+    ask.en = "Do you want to activate the directory?"
+    ask.fr = "Voulez-vous activer l'annuaire ?"
+    help.en = "The site directory and friends suggestions are populated importing 'friends of friends' from connections that are made on your site. You might wish to disable this if your server has limited resources. This can be changed later in your website's Admin interface."
+    help.fr = "L'annuaire du site et les suggestions d'amis sont alimentés par l'importation des 'amis d'amis' à partir des connexions établies sur votre site. Vous pouvez désactiver cette fonction si votre serveur dispose de ressources limitées. Ce réglage peut être modifié ultérieurement dans l'interface d'administration de votre site."
+    type = "boolean"
+    default = true
 
 [resources]
 
