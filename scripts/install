@@ -105,6 +105,15 @@ ynh_mysql_connect_as --user="$db_name" --password="$db_pwd" --database="$db_name
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
+timezone=$(</etc/timezone)
+
+if [ $activate_directory -eq 1 ]
+then
+    max_imported_follow=10
+else
+    max_imported_follow=0
+fi
+
 ynh_add_config --template="../conf/htconfig.sample.php" --destination="$install_dir/.htconfig.php"
 
 ynh_store_file_checksum --file=$install_dir/.htconfig.php

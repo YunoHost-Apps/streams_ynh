@@ -119,6 +119,9 @@ popd
 #=================================================
 ynh_script_progression --message="Updating a configuration file..." --weight=1
 
+timezone=$(</etc/timezone)
+max_imported_follow=10
+
 ynh_add_config --template="../conf/htconfig.sample.php" --destination="$install_dir/.htconfig.php"
 
 chmod 600 "$install_dir/.htconfig.php"
