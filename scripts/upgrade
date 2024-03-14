@@ -132,6 +132,13 @@ chown $app:$app "$install_dir/.htconfig.php"
 #=================================================
 ynh_script_progression --message="Setuping cron job..." --weight=1
 
+# We're ready for the moment when 'Code' is renamed 'src'
+# Check for renaming of 'Code' folder to 'src'
+if [ -d /var/www/__APP__/src ]
+then
+    sed "/finished/ i\# 'Code' folder was renamed 'src'\nsed -i \'s\/Code\/src\/\' \/etc\/cron.d\/__APP__" conf/daily-update.sh
+fi
+
 # Set up cron job
 ynh_add_config --template="../conf/cronjobs" --destination="/etc/cron.d/$app"
 chown root: "/etc/cron.d/$app"
