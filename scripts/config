@@ -24,7 +24,7 @@ current_fpm_footprint=$(ynh_app_setting_get --app=$app --key=fpm_footprint)
 
 get__git_branch_mode() {
     # Git branch mode status
-    git_branch_mode_status="$(cd "$install_dir" && git branch --show-current)" 2> /dev/null
+    git_branch_mode_status="$(cd "$install_dir" && sudo -u $app git branch --show-current)" 2> /dev/null
     if echo $git_branch_mode_status | grep -q "release"
     then
         echo "0"
