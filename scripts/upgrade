@@ -134,9 +134,16 @@ ynh_script_progression --message="Setuping cron job..." --weight=1
 
 # We're ready for the moment when 'Code' is renamed 'src'
 # Check for renaming of 'Code' folder to 'src'
-if [ -d /var/www/__APP__/src ]
+if [ -d /var/www/$app/src ]
 then
     sed -i 's/Code/src/' ../conf/cronjobs
+fi
+if [ -d /var/www/$app/Code ]
+then
+    sed -i "/finished/ i\# Check if 'Code' folder was renamed 'src' and adapt cronjob accordingly" conf/daily-update.sh
+    sed -i "/finished/ i\if [ -d \/var\/www\/$app\/src ] ; then"
+    sed -i "/finished/ i\    sed -i \'s\/Code\/src\/\' \/etc\/cron.d\/$app"
+    sed -i "/finished/ i\fi"
 fi
 
 # Set up cron job
