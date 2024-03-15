@@ -19,6 +19,7 @@ random_string="$(ynh_string_random --length=48)"
 fpm_footprint="medium"
 fpm_free_footprint=0
 fpm_usage="medium"
+git_branch_mode="0"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
@@ -31,6 +32,7 @@ ynh_app_setting_set --app=$app --key=random_string --value=$random_string
 ynh_app_setting_set --app=$app --key=fpm_footprint --value=$fpm_footprint
 ynh_app_setting_set --app=$app --key=fpm_free_footprint --value=$fpm_free_footprint
 ynh_app_setting_set --app=$app --key=fpm_usage --value=$fpm_usage
+ynh_app_setting_set --app=$app --key=git_branch_mode --value="$git_branch_mode"
 
 #=================================================
 # CREATE A DATABASE
@@ -51,7 +53,7 @@ chown -R $app:www-data "$install_dir"
 git config --system --add safe.directory $install_dir
 
 # Download, check integrity, uncompress and patch the source from GitHub
-git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
+ynh_exec_as $app git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
 
 touch "$install_dir/php.log"
 mkdir -p "$install_dir/store"
