@@ -20,8 +20,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
-
-**Shipped version:** 24.02.18~ynh1
+**Shipped version:** 24.02.18~ynh2
 
 ## Screenshots
 
@@ -39,7 +38,7 @@ Please send your pull request to the [testing branch](https://github.com/YunoHos
 
 To try the testing branch, please proceed like that.
 
-``` bash
+```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/streams_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade streams -u https://github.com/YunoHost-Apps/streams_ynh/tree/testing --debug
