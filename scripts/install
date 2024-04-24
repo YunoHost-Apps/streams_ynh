@@ -52,7 +52,7 @@ chown -R $app:www-data "$install_dir"
 
 # Download, check integrity, uncompress and patch the source from GitHub
 ynh_exec_as $app git clone https://codeberg.org/streams/streams.git "$install_dir" --quiet
-ynh_exec_as $app git config --system --add safe.directory $install_dir
+git config --system --add safe.directory $install_dir
 
 touch "$install_dir/php.log"
 mkdir -p "$install_dir/store"
