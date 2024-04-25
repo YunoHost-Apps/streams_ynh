@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install Streams with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install Streams quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -21,7 +21,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**Shipped version:** 24.02.18~ynh2
+**Shipped version:** 24.02.18~ynh3
 
 ## Screenshots
 
