@@ -122,6 +122,8 @@ ynh_store_file_checksum --file=$install_dir/.htconfig.php
 chmod 600 "$install_dir/.htconfig.php"
 chown $app:$app "$install_dir/.htconfig.php"
 
+ynh_exec_as $app touch $data_dir/extra_conf.php
+
 #=================================================
 # SET CRON JOBS
 #=================================================

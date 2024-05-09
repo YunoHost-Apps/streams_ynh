@@ -148,6 +148,11 @@ ynh_add_config --template="../conf/htconfig.sample.php" --destination="$install_
 chmod 600 "$install_dir/.htconfig.php"
 chown $app:$app "$install_dir/.htconfig.php"
 
+if [ ! -f $data_dir/extra_conf.php ]
+then
+    ynh_exec_as $app touch $data_dir/extra_conf.php
+fi
+
 #=================================================
 # UPGRADE CRON JOB
 #=================================================
