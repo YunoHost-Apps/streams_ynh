@@ -12,6 +12,10 @@
 
 - **Failed Database after Upgrade**: If the database upgrade fails after version upgrade, you can visit the dedicated page, `https://mywebsite.domain.tld/admin/dbsync/`, and check the numbers of failed updates. These updates will have to be ran manually using software such as **phpMyAdmin**.
 
+### Custom configuration
+
+- **Additional settings in .htconfig.php**: If you need to add some additional lines in .htconfig.php (as described on the [Service Classes](https://codeberg.org/streams/streams/src/commit/c75afc9ab4b9ba19628008c14459756edf9c291a/doc/admin/en/Service_Classes.mc) or [PHPMailer](https://codeberg.org/streams/streams/src/commit/c75afc9ab4b9ba19628008c14459756edf9c291a/doc/admin/en/SMTP.mc) documentation), please add it in the `/home/yunohost.app/streams/extra_conf.php` file (or `/home/yunohost.app/streams__X/extra_conf.php` if you installed more than one site). Do not touch .htconfig.php as your changes will be wiped when the YunoHost package is upgraded.
+
 ### Git branches and code updates
 
 - **Developer Mode**: the default git branch used is 'release', which should be considered as the stable version of the software. You can, **at your own risk**, switch to the 'dev' branch. You can do this in the config panel of your app in YunoHost admin interface. You can also do it through a SSH connection by using the `git checkout dev` command in the installation directory. **In the config panel you can only switch back to 'release' branch if it is ahead of the 'dev' branch**. You can do it anytime through SSH simply use the `git checkout release` command.
