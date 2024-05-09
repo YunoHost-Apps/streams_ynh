@@ -135,4 +135,4 @@ ini_set('error_log','php.log');
 ini_set('log_errors','1');
 
 // Extra settings stored in the app data dir (Service Classes, PHPMailer...)
-include __DATA_DIR__/extra_conf.php
+include '__DATA_DIR__/extra_conf.php';
