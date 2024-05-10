@@ -121,39 +121,6 @@ App::$config['system']['theme'] = 'fresh';
 // Allow local test environments with unverified SSL certs using Lando
 App::$config['system']['ssl_exceptions'] = 'lndo.site';
 
-// Mail configuration
-// By default, uses local sendmail service
-// Only change these settings if you require SMTP transport
-
-// App::$config['phpmailer']['mailer'] = 'smtp';
-// App::$config['phpmailer']['host'] = 'example.com';
-
-// Leave this line commented if using SSL or STARTTLS and set the port in the next sections
-// App::$config['phpmailer']['port'] = 25;  // (or 587 or 465 if using ssl)
-
-// If using smtp authentication:
-// App::$config['phpmailer']['smtpauth'] = 1;
-// App::$config['phpmailer']['uername'] = 'your_username';
-// App::$config['phpmailer']['password'] = 'your_secret_password';
-
-// If using starttls:
-// App::$config['phpmailer']['smtpsecure'] = 'tls';
-// App::$config['phpmailer']['port'] = 587;
-
-// If using ssl:
-// App::$config['phpmailer']['smtpsecure'] = 'ssl';
-// App::$config['phpmailer']['port'] = 465;
-
-// If the server has a self-signed cert:
-// App::$config['phpmailer']['noverify'] = 1;
-
-// For debugging
-// App::$config['phpmailer']['smtpdebug'] = 2; // valid values are 0-4
-
-// These settings should work for 99% of use cases
-// If you encounter any issues, please see  https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
-// If you need to extend these configuration options, please submit a pull request with your changes.
-
 
 // PHP error logging setup
 // Before doing this ensure that the webserver has permission
@@ -166,3 +133,6 @@ ini_set('display_errors', '0');
 error_reporting(E_ERROR | E_PARSE ); 
 ini_set('error_log','php.log'); 
 ini_set('log_errors','1');
+
+// Extra settings stored in the app data dir (Service Classes, PHPMailer...)
+include '__DATA_DIR__/extra_conf.php';
