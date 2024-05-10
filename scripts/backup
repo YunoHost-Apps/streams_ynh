@@ -53,7 +53,7 @@ ynh_backup --src_path="/etc/logrotate.d/$app"
 #=================================================
 
 ynh_backup --src_path="/etc/cron.d/$app"
-ynh_backup --src_path="/$data_dir"
+ynh_backup --src_path="$data_dir"
 
 #=================================================
 # BACKUP THE DATABASE

@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "24.02.18~ynh3"
+version = "24.05.10~ynh1"
 
 maintainers = ["Papa Dragon"]
 

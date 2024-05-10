@@ -12,6 +12,10 @@
 
 - **Échec de la base de données après la mise à niveau** : Parfois, la mise à niveau de la base de données échoue après la mise à niveau de la version. Allez sur la page dédiée de votre site, `https://monsite.domaine.tld/admin/dbsync/`, et vérifiez les références de mises à jour défaillantes. Ces mises à jour devront être exécutées manuellement, sur **phpMyAdmin**.
 
+### Configuration personnalisée
+
+- **Paramètres additionnels dans .htconfig.php** : Si vous avez besoin d'ajouter des lignes supplémentaires dans .htconfig.php (comme décrit dans la documentation de [Service Classes](https://codeberg.org/streams/streams/src/commit/c75afc9ab4b9ba19628008c14459756edf9c291a/doc/admin/en/Service_Classes.mc) ou de [PHPMailer](https://codeberg.org/streams/streams/src/commit/c75afc9ab4b9ba19628008c14459756edf9c291a/doc/admin/en/SMTP.mc)), veuillez les ajouter dans le fichier `/home/yunohost.app/streams/extra_conf.php` (ou `/home/yunohost.app/streams__X/extra_conf.php` si vous avez installé plusieurs sites). Ne touchez pas à .htconfig.php car vos modifications seront effacées lors de la mise à jour du paquet YunoHost.
+
 ### Branches git et mises à jour du code
 
 - **Mode Développeur** : la branche utilisée par défaut est 'release', qui doit être considérée comme la version stable du logiciel. Vous pouvez, **à vos risques et périls**, basculer vers la branche de développement 'dev'. Vous pouvez le faire dans le panneau de configuration de votre application dans l'interface d'administration de YunoHost. Vous pouvez aussi le faire via une connexion SSH en utilisant la commande `git checkout dev` dans le répertoire d'installation. **Dans le panneau de configuration, vous ne pouvez revenir à la branche 'release' que si elle est en avance sur la branche 'dev'**. Vous pouvez le faire à tout moment via SSH en utilisant la commande `git checkout release`.
