@@ -105,7 +105,8 @@ ynh_config_add --template="cronjobs" --destination="/etc/cron.d/$app"
 ynh_script_progression "Configuring log rotation..."
 
 # Use logrotate to manage application logfile(s)
-ynh_config_add_logrotate "$install_dir/php.log"
+ynh_config_add_logrotate "/var/log/$app/php.log"
+ynh_exec_as_app touch "/var/log/$app/php.log"
 
 #=================================================
 # SETUP FAIL2BAN
@@ -114,11 +115,9 @@ ynh_script_progression "Configuring Fail2Ban..."
 
 # Create a dedicated Fail2Ban config
 ynh_config_add_fail2ban --logpath="/var/log/$app/php.log" --failregex="^.*auth\.php.*failed login attempt.*from IP <HOST>.*$"
-ynh_exec_as_app touch "/var/log/$app/php.log"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
-ls -ld /var/www/$app
-namei -l /var/www/streams/index.php
+
 ynh_script_progression "Installation of $app completed"
