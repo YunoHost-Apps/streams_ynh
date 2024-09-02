@@ -3,123 +3,26 @@
 source _common.sh
 source /usr/share/yunohost/helpers
 
-#REMOVEME? ynh_abort_if_errors
-
 #=================================================
 # RETRIEVE ARGUMENTS
 #=================================================
 
 php_version="$YNH_PHP_VERSION"
-current_fpm_footprint=$(ynh_app_setting_get --key=fpm_footprint)
 
 #=================================================
 # SPECIFIC GETTERS FOR TOML SHORT KEY
 #=================================================
 
-get__git_branch_mode() {
-    # Git branch mode status
-    git_branch_mode_status="$(cd "$install_dir" && ynh_exec_as_app git branch --show-current)" 2> /dev/null
-    if echo $git_branch_mode_status | grep -q "release"
-    then
-        echo "0"
-    elif echo $git_branch_mode_status | grep -q "dev"
-    then
-        echo "1"
-    else
-        ynh_print_warn "Not using \"release\" or \"dev\" branch, please handle this in command line"
-        exit 0
-    fi
-}
-
-get__fpm_footprint() {
-    # Free footprint value for php-fpm
-    # Check if current_fpm_footprint is an integer
-    if [ "$current_fpm_footprint" -eq "$current_fpm_footprint" ] 2> /dev/null
-    then
-        echo "specific"
-    else
-        echo "$current_fpm_footprint"
-    fi
-}
-
-get__free_footprint() {
-    # Free footprint value for php-fpm
-    # Check if current_fpm_footprint is an integer
-    if [ "$current_fpm_footprint" -eq "$current_fpm_footprint" ] 2> /dev/null
-    then
-        # If current_fpm_footprint is an integer, that's a numeric value for the footprint
-        echo "$current_fpm_footprint"
-    else
-        echo "0"
-    fi
-}
-
 #=================================================
 # SPECIFIC SETTERS FOR TOML SHORT KEYS
 #=================================================
 
-set__git_branch_mode() {
-    if [ "$git_branch_mode" -eq "0" ]
-    then
-        # We allow switch back to "release" only if the branch is ahead of "dev"
-        if [ -z "$(cd "$install_dir" && git log --oneline release..dev)" ]
-        then
-            # If git_branch was set to 0, switch to "release" branch
-            ynh_print_info "Switching to \"release\" branch"
-            (cd "$install_dir" && ynh_exec_as_app git checkout release)
-            ynh_print_info "Full update of the website"
-            (cd /home/yunohost.app/"$app" && bash daily-update.sh >> daily-updates.log 2>&1)
-        else
-            ynh_die "\"release\" branch is behind your local \"dev\" branch, rolling back is not allowed here"
-            exit 1
-        fi
-    elif [ "$git_branch_mode" -eq "1" ]; then
-        # If git_branch was set to 1, switch to "dev" branch
-        (cd "$install_dir" && ynh_exec_as_app git checkout dev)
-        ynh_print_info "Switching to \"dev\" branch"
-    fi
-    ynh_app_setting_set --key=git_branch_mode --value="$git_branch_mode"
-}
-
-#REMOVEME? Everything about fpm_footprint is removed in helpers2.1... | set__fpm_footprint() {
-#REMOVEME? Everything about fpm_footprint is removed in helpers2.1... |     if [ "$fpm_footprint" != "specific" ]
-    then
-#REMOVEME? Everything about fpm_footprint is removed in helpers2.1... |         ynh_app_setting_set --key=fpm_footprint --value="$fpm_footprint"
-    fi
-}
-
-#REMOVEME? Everything about fpm_free_footprint is removed in helpers2.1... | set__fpm_free_footprint() {
-#REMOVEME? Everything about fpm_footprint is removed in helpers2.1... |     if [ "$fpm_footprint" = "specific" ]
-    then
-#REMOVEME? Everything about fpm_free_footprint is removed in helpers2.1... |         ynh_app_setting_set --key=fpm_footprint --value="$fpm_free_footprint"
-    fi
-}
-
-#=================================================
-
 ynh_app_config_validate() {
     _ynh_app_config_validate
-
-    if [ "${changed[fpm_usage]}" == "true" ] || [ "${changed[fpm_footprint]}" == "true" ] || [ "${changed[fpm_free_footprint]}" == "true" ]; then
-#REMOVEME? Everything about fpm_free_footprint is removed in helpers2.1... |         # If fpm_footprint is set to 'specific', use $fpm_free_footprint value.
-#REMOVEME? Everything about fpm_footprint is removed in helpers2.1... |         if [ "$fpm_footprint" = "specific" ]
-        then
-#REMOVEME? Everything about fpm_free_footprint is removed in helpers2.1... |             fpm_footprint=$fpm_free_footprint
-        fi
-
-#REMOVEME? Everything about fpm_footprint is removed in helpers2.1... |         if [ "$fpm_footprint" == "0" ]
-        then
-            ynh_print_warn "When selecting 'specific', you have to set a footprint value into the field below."
-
-            exit 0
-        fi
-    fi
 }
 
 ynh_app_config_apply() {
     _ynh_app_config_apply
-
-    ynh_config_add_phpfpm
 }
 
 ynh_app_config_run $1
