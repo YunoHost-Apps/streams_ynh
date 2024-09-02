@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Streams YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/streams.svg)](https://dash.yunohost.org/appci/app/streams) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
 
 [![Instalatu Streams YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 

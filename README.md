@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Streams for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/streams.svg)](https://dash.yunohost.org/appci/app/streams) ![Working status](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![Integration level](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![Working status](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
 
 [![Install Streams with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
