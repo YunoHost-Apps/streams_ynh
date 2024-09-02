@@ -109,7 +109,7 @@ App::$config['system']['max_import_size'] = 200000;
 
 // Location of PHP command line processor
 
-App::$config['system']['php_path'] = '/usr/bin/php__PHPVERSION__';
+App::$config['system']['php_path'] = '/usr/bin/php__PHP_VERSION__';
 
 // Configure how we communicate with directory servers.
 // Deprecated. Please do not change.
