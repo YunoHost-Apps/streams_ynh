@@ -4,25 +4,18 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# RETRIEVE ARGUMENTS FROM THE MANIFEST
+# INITIALIZE SETTINGS
 #=================================================
+ynh_script_progression "Initialize installation settings..."
 
-email=$(ynh_user_get_info --username=$admin --key=mail)
-upload="256M"
-random_string="$(ynh_string_random --length=48)"
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-ynh_script_progression "Storing installation settings..."
-ynh_app_setting_set --key=email --value=$email
-ynh_app_setting_set --key=upload --value=$upload
-ynh_app_setting_set --key=random_string --value=$random_string
+ynh_app_setting_set_default --key=email --value=$(ynh_user_get_info --username=$admin --key=mail)
+ynh_app_setting_set_default --key=upload --value="256M"
+ynh_app_setting_set_default --key=random_string --value="$(ynh_string_random --length=48)"
 
 #=================================================
 # CREATE A DATABASE
 #=================================================
-ynh_script_progression "Creating a database..."
+ynh_script_progression "Tweak database character set..."
 
 ynh_mysql_db_shell \
 <<< "ALTER DATABASE $db_name CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;"
