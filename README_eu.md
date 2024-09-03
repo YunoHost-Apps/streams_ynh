@@ -5,7 +5,7 @@ EZ editatu eskuz.
 
 # Streams YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/streams.svg)](https://dash.yunohost.org/appci/app/streams) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![Integrazio maila](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
 
 [![Instalatu Streams YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
@@ -21,7 +21,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**Paketatutako bertsioa:** 24.05.10~ynh1
+**Paketatutako bertsioa:** 24.8.27~ynh1
 
 ## Pantaila-argazkiak
 
