@@ -5,11 +5,12 @@ source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# RESTORE THE APP MAIN DIR
+# RESTORE THE APP MAIN DIR & DATA DIR
 #=================================================
 ynh_script_progression "Restoring the app main directory..."
 
 ynh_restore "$install_dir"
+ynh_restore "$data_dir"
 
 #=================================================
 # RESTORE THE DATABASE
@@ -33,7 +34,6 @@ ynh_systemctl --action=restart --service=fail2ban
 # RESTORE CRON JOBS
 #=================================================
 ynh_restore "/etc/cron.d/$app"
-ynh_restore "$data_dir"
 
 #=================================================
 # RESTORE LOGROTATE

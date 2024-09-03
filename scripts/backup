@@ -7,10 +7,11 @@ source /usr/share/yunohost/helpers
 ynh_print_info "Declaring files to be backed up..."
 
 #=================================================
-# BACKUP THE APP MAIN DIR
+# BACKUP THE APP MAIN DIR & DATA DIR
 #=================================================
 
 ynh_backup "$install_dir"
+ynh_backup "$data_dir"
 
 #=================================================
 # BACKUP THE NGINX CONFIGURATION
@@ -44,7 +45,6 @@ ynh_backup "/etc/logrotate.d/$app"
 #=================================================
 
 ynh_backup "/etc/cron.d/$app"
-ynh_backup "$data_dir"
 
 #=================================================
 # BACKUP THE DATABASE

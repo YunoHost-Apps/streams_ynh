@@ -53,8 +53,6 @@ ynh_script_progression "Pulling in external libraries with Composer..."
 ynh_composer_install
 ynh_composer_exec install --no-dev
 
-chown -R $app:www-data "$install_dir"
-
 #=================================================
 # SPECIFIC SETUP
 #=================================================
