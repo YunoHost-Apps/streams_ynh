@@ -21,7 +21,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**Shipped version:** 24.10.23~ynh1
+**Shipped version:** 24.10.23~ynh2
 
 ## Screenshots
 
