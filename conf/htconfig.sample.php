@@ -131,8 +131,6 @@ ini_set('display_errors', '0');
 
 // Uncomment the following lines to turn on PHP error logging.
 error_reporting(E_ERROR | E_PARSE ); 
-ini_set('error_log','php.log'); 
-ini_set('log_errors','1');
 
 // Extra settings stored in the app data dir (Service Classes, PHPMailer...)
 include '__DATA_DIR__/extra_conf.php';
