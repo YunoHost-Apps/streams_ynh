@@ -1,0 +1,1 @@
+**WARNING**: From version 24.11.8~ynh2 the app log file will be /var/log/__APP__/php.log. Logging will also be enable by default as it is necessary to secure your server with fail2ban. You can of course change these settings in the admin interface of your streams website (https://__DOMAIN__/admin).
