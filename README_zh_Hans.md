@@ -5,7 +5,9 @@
 
 # YunoHost 上的 Streams
 
-[![集成程度](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/streams)](https://ci-apps.yunohost.org/ci/apps/streams/)
+![工作状态](https://apps.yunohost.org/badge/state/streams)
+![维护状态](https://apps.yunohost.org/badge/maintained/streams)
 
 [![使用 YunoHost 安装 Streams](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
@@ -21,7 +23,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**分发版本：** 24.11.19~ynh1
+**分发版本：** 24.11.26~ynh1
 
 ## 截图
 
