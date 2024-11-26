@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # Streams pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/streams)](https://ci-apps.yunohost.org/ci/apps/streams/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/streams)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/streams)
 
 [![Installer Streams avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
@@ -21,7 +23,7 @@ Le [dépôt streams](https://codeberg.org/streams/streams/) vous permet d'instal
 Vos sites web seront compatibles avec **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** et bien d'autres encore.
 
 
-**Version incluse :** 24.11.19~ynh1
+**Version incluse :** 24.11.26~ynh1
 
 ## Captures d’écran
 

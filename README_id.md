@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # Streams untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/streams)](https://ci-apps.yunohost.org/ci/apps/streams/)
+![Status kerja](https://apps.yunohost.org/badge/state/streams)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/streams)
 
 [![Pasang Streams dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
@@ -21,7 +23,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**Versi terkirim:** 24.11.19~ynh1
+**Versi terkirim:** 24.11.26~ynh1
 
 ## Tangkapan Layar
 
