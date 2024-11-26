@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # Streams voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/streams.svg)](https://ci-apps.yunohost.org/ci/apps/streams/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/streams.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/streams.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/streams)](https://ci-apps.yunohost.org/ci/apps/streams/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/streams)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/streams)
 
 [![Streams met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=streams)
 
@@ -21,7 +23,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**Geleverde versie:** 24.11.19~ynh1
+**Geleverde versie:** 24.11.26~ynh1
 
 ## Schermafdrukken
 
