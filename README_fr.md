@@ -23,7 +23,7 @@ Le [dépôt streams](https://codeberg.org/streams/streams/) vous permet d'instal
 Vos sites web seront compatibles avec **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** et bien d'autres encore.
 
 
-**Version incluse :** 24.11.26~ynh1
+**Version incluse :** 24.12.2~ynh2
 
 ## Captures d’écran
 
