@@ -35,6 +35,10 @@ ynh_setup_source --dest_dir="$install_dir/addon" --source_id="addons"
 
 # We restore symlinks to stuff in $data_dir
 ynh_exec_as_app ln -s $data_dir/store $install_dir/
+if [ -d "$install_dir/cache" ]
+then
+    ynh_safe_rm $install_dir/cache
+fi
 ynh_exec_as_app ln -s $data_dir/cache $install_dir/
 
 #=================================================
