@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "25.1.15~ynh1"
+version = "25.1.16~ynh1"
 
 maintainers = ["Papa Dragon"]
 
@@ -49,8 +49,8 @@ ram.runtime = "50M"
 
     [resources.sources]
         [resources.sources.main]
-        url = "https://codeberg.org/streams/streams/archive/v25.1.15.tar.gz"
-        sha256 = "d49a2af089d511a78ec3f8b039d6be852dc0725443856bcaf0a0a5a5bd47dd9a"
+        url = "https://codeberg.org/streams/streams/archive/v25.1.16.tar.gz"
+        sha256 = "de3604128353e5c9e92f1afb7c9f38e9373e3db2073e1ba6339fb3389335e8c5"
         autoupdate.strategy = "latest_forgejo_tag"
         autoupdate.version_regex = "^v(.*)$"
 
