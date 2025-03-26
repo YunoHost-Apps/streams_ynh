@@ -3,7 +3,7 @@ Este archivo README esta generado automaticamente<https://github.com/YunoHost/ap
 No se debe editar a mano.
 -->
 
-# Streams para Yunohost
+# Streams para YunoHost
 
 [![Nivel de integración](https://apps.yunohost.org/badge/integration/streams)](https://ci-apps.yunohost.org/ci/apps/streams/)
 ![Estado funcional](https://apps.yunohost.org/badge/state/streams)
@@ -23,7 +23,7 @@ The [streams repository](https://codeberg.org/streams/streams/) lets you install
 Your websites will be compatible with **Mastodon**, **Pleroma**, **Pixelfed**, **Friendica**, **Hubzilla**, **Funkwhale**, **Peertube**, **Plume**, **WriteFreely** and many, many more.
 
 
-**Versión actual:** 25.3.21~ynh1
+**Versión actual:** 25.3.26~ynh1
 
 ## Capturas
 
