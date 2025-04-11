@@ -22,6 +22,11 @@ ynh_mysql_db_shell \
 ynh_mysql_db_shell  < "./db.sql"
 
 #=================================================
+# RESTORE LOGFILES
+#=================================================
+ynh_restore "/var/log/$app"
+
+#=================================================
 # RESTORE FAIL2BAN CONFIGURATION
 #=================================================
 ynh_script_progression "Restoring the Fail2Ban configuration..."
