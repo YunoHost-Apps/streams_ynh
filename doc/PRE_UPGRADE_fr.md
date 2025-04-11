@@ -1,1 +1,0 @@
-**ATTENTION** : A partir de la version 24.11.8~ynh2, le fichier journal de l'application sera /var/log/__APP__/php.log. La journalisation sera également activée par défaut car elle est nécessaire pour sécuriser votre serveur avec fail2ban. Vous pouvez bien sûr modifier ces paramètres dans l'interface d'administration de votre site web streams (https://__DOMAIN__/admin/logs/).
