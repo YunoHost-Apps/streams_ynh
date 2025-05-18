@@ -67,7 +67,7 @@ ynh_mysql_db_shell < $install_dir/install/schema_mysql.sql
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-timezone=$(</etc/timezone)
+timezone=$(timedatectl show --value --property=Timezone)
 
 if [ $activate_directory -eq 1 ]
 then

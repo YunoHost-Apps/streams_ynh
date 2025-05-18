@@ -65,7 +65,7 @@ ynh_composer_exec install --no-dev
 #=================================================
 ynh_script_progression "Updating configuration..."
 
-timezone=$(</etc/timezone)
+timezone=$(timedatectl show --value --property=Timezone)
 max_imported_follow=10
 
 ynh_config_add --template="htconfig.sample.php" --destination="$install_dir/.htconfig.php"
