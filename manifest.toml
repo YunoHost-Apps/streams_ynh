@@ -49,8 +49,8 @@ ram.runtime = "50M"
 
     [resources.sources]
         [resources.sources.main]
-        url = "https://codeberg.org/streams/streams/archive/3e043b16b651c2254cfa4bb0707d2897028d7630.tar.gz"
-        sha256 = "ec90c2fa23ca0b1b6117b55e69afa8711530094d34b289f4cc912e0a04ddbc41"
+        url = "https://codeberg.org/streams/streams/archive/90a567cf9f9a87cde7e30d3a7a408da6f8afa9d0.tar.gz"
+        sha256 = "6b88195370d61afef380a12700e58083a3f885797f11ec101fc67d54bc0c1fd8"
         autoupdate.strategy = "latest_forgejo_tag"
         autoupdate.version_regex = "^v(.*)$"
 
