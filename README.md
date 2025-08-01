@@ -10,12 +10,16 @@ It shall NOT be edited by hand.
 
 Open source fediverse server
 
-[![Version: 25.7.22~ynh2](https://img.shields.io/badge/Version-25.7.22~ynh2-rgba(0,150,0,1)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/streams/)
+[![Version: 25.7.22~ynh3](https://img.shields.io/badge/Version-25.7.22~ynh3-rgba(0,150,0,1)?style=for-the-badge)](https://ci-apps.yunohost.org/ci/apps/streams/)
 
 <div align="center">
 <a href="https://apps.yunohost.org/app/streams"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_more_info_on_the_appstore.svg"/></a>
 <a href="https://github.com/YunoHost-Apps/streams_ynh/issues"><img height="100px" src="https://github.com/YunoHost/yunohost-artwork/raw/refs/heads/main/badges/neopossum-badges/badge_report_an_issue.svg"/></a>
 </div>
+
+
+## Screenshots
+![Screenshot of Streams](./doc/screenshots/example.png)
 
 ## 📦 Developer info
 
