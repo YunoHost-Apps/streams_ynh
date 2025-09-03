@@ -6,4 +6,4 @@
 # PHP APP SPECIFIC
 #=================================================
 
-YNH_PHP_VERSION="8.3"
+YNH_PHP_VERSION="8.4"
