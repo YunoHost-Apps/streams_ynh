@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "25.8.22~ynh2"
+version = "25.9.3~ynh1"
 
 maintainers = ["Papa Dragon"]
 
@@ -27,7 +27,7 @@ ram.runtime = "50M"
 [install]
     [install.domain]
     help.en = "Your website can only be installed in a root domain or subdomain"
-    help.fr = "Votre site web ne peut être installé que dans un doé(maine racine ou un sous-domaine"
+    help.fr = "Votre site web ne peut être installé que dans un domaine racine ou un sous-domaine"
     type = "domain"
 
     [install.init_main_permission]
@@ -49,8 +49,8 @@ ram.runtime = "50M"
 
     [resources.sources]
         [resources.sources.main]
-        url = "https://codeberg.org/streams/streams/archive/4f27e5aab6019cdb7a6aad81b9a008432079109d.tar.gz"
-        sha256 = "5405b7a5c186c4fa8ff8228ac93723d70e283b3d1a4bf03751d158062ed85c03"
+        url = "https://codeberg.org/streams/streams/archive/v25.9.3.tar.gz"
+        sha256 = "5f060daf5df8ae2880a803633408211cf636135b13605c171903f445ecd1057d"
         autoupdate.strategy = "latest_forgejo_tag"
         autoupdate.version_regex = "^v(.*)$"
 
