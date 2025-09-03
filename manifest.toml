@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "25.8.22~ynh1"
+version = "25.8.22~ynh2"
 
 maintainers = ["Papa Dragon"]
 
@@ -14,7 +14,7 @@ license = "Unlicense"
 code = "https://codeberg.org/streams/streams"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.1.17"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -73,7 +73,10 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "php8.3-mbstring, php8.3-cli, php8.3-imagick, php8.3-xml, php8.3-zip, php8.3-curl, php8.3-ldap, php8.3-gd, mariadb-server, php8.3-mysql php8.3-gmp"
+    packages = "php8.4-mbstring, php8.4-cli, php8.4-imagick, php8.4-xml, php8.4-zip, php8.4-curl, php8.4-ldap, php8.4-gd, mariadb-server, php8.4-mysql php8.4-gmp"
 
     [resources.database]
     type = "mysql"
+
+    [resources.composer]
+    version = "2.8.11"
