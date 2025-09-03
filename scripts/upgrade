@@ -38,6 +38,8 @@ then
 fi
 ynh_exec_as_app ln -s $data_dir/cache $install_dir/
 
+chown -R "$app:www-data" "$install_dir"
+
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
