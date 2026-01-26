@@ -5,7 +5,7 @@ name = "Streams"
 description.en = "Open source fediverse server"
 description.fr = "Serveur fediverse open source"
 
-version = "25.12.14~ynh1"
+version = "25.12.14~ynh2"
 
 maintainers = ["Papa Dragon"]
 
@@ -14,7 +14,7 @@ license = "Unlicense"
 code = "https://codeberg.org/streams/streams"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
@@ -55,9 +55,9 @@ ram.runtime = "50M"
         autoupdate.version_regex = "^v(.*)$"
 
         [resources.sources.addons]
-        url = "https://codeberg.org/streams/streams-addons/archive/v25.7.22.tar.gz"
-        sha256 = "e20fc18f94b9795090e115d56380e03e3c14be35210ba480bc109864143863a3"
-        autoupdate.strategy = "latest_forgejo_commit"
+        url = "https://codeberg.org/streams/streams-addons/archive/v25.12.14.tar.gz"
+        sha256 = "fb204f6d3fe82985637c08489a221eeb456faec83cd907b0693dc491a1409634"
+        autoupdate.strategy = "latest_forgejo_tag"
         autoupdate.upstream = "https://codeberg.org/streams/streams-addons"
 
     [resources.ports]
