@@ -13,5 +13,5 @@ test_format = 1.0
     # Default args to use for install
     # -------------------------------
 
-#    test_upgrade_from.e63fc23c82170d2699f3c2761f5241378510fecd.name = "Upgrade from 26.2.14.1~ynh1"
+    test_upgrade_from.471473ef250f28fdc8697824326fb04a82a58d58.name = "Upgrade from 26.5.3~ynh4"
 
